@@ -1,6 +1,6 @@
 {
-    "name": "pxt-hummingbird-bit",
-    "version": "0.0.7",
+    "name": "pxt-ajhummingbird-bit",
+    "version": "0.0.8",
     "description": "",
     "dependencies": {
         "core": "*",
