@@ -60,7 +60,7 @@ namespace ajhummingbird {
      * This block is required for every Hummingbird program.
      */
     //% weight=32 blockId="startHB" block="AJ Start Hummingbird"
-    export function startHummingbird(): void {
+    export function ajStartHummingbird(): void {
         pins.analogWritePin(AnalogPin.P0, 0)
         basic.pause(waitTime_Start);                //To avoid the bootloader
         pins.digitalWritePin(DigitalPin.P16, 1)
