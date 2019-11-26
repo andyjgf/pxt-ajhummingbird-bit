@@ -43,8 +43,8 @@ enum SensorType {
 /**
  * Blocks for Controlling a Hummingbird Bit
  */
-//% color=#62bcc7 weight=32 icon="\uF0EB"
-namespace hummingbird {
+//% color=#6200c7 weight=32 icon="\uF0EB"
+namespace ajhummingbird {
     let cmdBuff: Buffer
     let readBuff: Buffer
     let readyToSend: boolean
@@ -59,7 +59,7 @@ namespace hummingbird {
     /**
      * This block is required for every Hummingbird program.
      */
-    //% weight=32 blockId="startHB" block="Start Hummingbird"
+    //% weight=32 blockId="startHB" block="AJ Start Hummingbird"
     export function startHummingbird(): void {
         pins.analogWritePin(AnalogPin.P0, 0)
         basic.pause(waitTime_Start);                //To avoid the bootloader
@@ -93,7 +93,7 @@ namespace hummingbird {
      * @param port the LED port to control [1-3]
      * @param brightness the % brightness of the LED [0-100]
      */
-    //% weight=31 blockId="setLED" block="Hummingbird LED %port_num %intensity |\\%"
+    //% weight=31 blockId="setLED" block="AJ Hummingbird LED %port_num %intensity |\\%"
     //% port_num.min=1 port_num.max=3
     //% intensity.min=0 intensity.max=100
     export function setLED(port: ThreePort, intensity: number = 50): void {
@@ -144,7 +144,7 @@ namespace hummingbird {
      * @param green the % brightness of the green LED element [0-100]
      * @param blue the % brightness of the blue LED element [0-100]
      */
-    //% weight=29 blockId="setTriLED" block="Hummingbird Tri-LED %port_num| Red %Red| Green %Green| Blue %Blue|"
+    //% weight=29 blockId="setTriLED" block="AJ Hummingbird Tri-LED %port_num| Red %Red| Green %Green| Blue %Blue|"
     //% port_num.min=1 port_num.max=2
     //% Red.min=0 Red.max=100
     //% Green.min=0 Green.max=100
@@ -199,7 +199,7 @@ namespace hummingbird {
      * @param port the servo port to control [1-4]
      * @param angle the angle in degrees for the servo [0-180]; eg: 90
      */
-    //% weight=28 blockId="setPositionServo" block="Hummingbird Position Servo %port_num| %angle|°"
+    //% weight=28 blockId="setPositionServo" block="AJ Hummingbird Position Servo %port_num| %angle|°"
     //%port_num.min=1 port_num.max=4
     //% angle.min=0 angle.max=180
     export function setPositionServo(port: FourPort, angle: number = 90): void {
@@ -242,7 +242,7 @@ namespace hummingbird {
      * @param port the servo port to control [1-4]
      * @param speed the speed as a percent for the servo [-100 to 100]
      */
-    //% weight=28 blockId="setRotationServo" block="Hummingbird Rotation Servo %port_num| %speed|\\%"
+    //% weight=28 blockId="setRotationServo" block="AJ Hummingbird Rotation Servo %port_num| %speed|\\%"
     //%port_num.min=1 port_num.max=4
     //% speed.min=-100 speed.max=100
     export function setRotationServo(port: FourPort, speed: number = 0): void {
@@ -291,7 +291,7 @@ namespace hummingbird {
      * Reads the value of the sensor on port 1, 2, or 3. Readings for the distance sensor are given in cm. All other readings range from 0 to 100 (no units).
      * @param port the sensor port to read [1-3]
      */
-    //% weight=20 blockId="getSensors" block="Hummingbird %sensorType | %port_num"
+    //% weight=20 blockId="getSensors" block="AJ Hummingbird %sensorType | %port_num"
     //%sensorType.min=1 sensorType.max=3
     //%port_num.min=1 port_num.max=3
     export function getSensor(sensor: SensorType, port: ThreePort): number {
@@ -349,7 +349,7 @@ namespace hummingbird {
      * Reads the value of a switch port 1, 2, or 3. True for closed, false for open.
      * @param port the sensor port to read [1-3]
      */
-    //% weight=20 blockId="switchSet" block="Hummingbird %sensorType | %port_num"
+    //% weight=20 blockId="switchSet" block="AJ Hummingbird | %port_num"
     //%port_num.min=1 port_num.max=3
     export function switchSet(port: ThreePort): boolean {
         value = getSensor(SensorType.Dail, port);
@@ -359,7 +359,7 @@ namespace hummingbird {
     /**
      * Reads the value of the battery in milliVolts. You may start to see strange behavior when the value is below 4630 mV. 
      */
-    //% weight=20 blockId="getBattery" block="Hummingbird Battery"
+    //% weight=20 blockId="getBattery" block="AJ Hummingbird Battery"
     export function getBattery(): number {
         let timeout = 0
         while (!readyToSend && timeout < 25) {
